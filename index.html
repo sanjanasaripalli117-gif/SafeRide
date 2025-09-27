@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME TO SAFE RIDE</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .section-title {
+            color: #1e3a8a;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+        }
+        /* Form & Input Styles */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="tel"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        /* Vehicle Selection Styles */
+        .vehicle-options {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .vehicle-option {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .vehicle-option:hover, input[type="radio"]:checked + label {
+            border-color: #007bff;
+            background-color: #e6f0ff;
+        }
+        .vehicle-option label {
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        .vehicle-icon {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        input[type="radio"] {
+            display: none; /* Hide the default radio button */
+        }
+        /* Tracking & Payment Styles */
+        .tracking-box, .payment-box {
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: 1px dashed #007bff;
+            text-align: center;
+            background-color: #f0f7ff;
+        }
+        .tracking-map-placeholder {
+            height: 200px;
+            background-color: #e0e9f6;
+            line-height: 200px;
+            font-weight: bold;
+            color: #666;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .qr-section img {
+            width: 120px;
+            height: 120px;
+            margin: 15px 0;
+            border: 5px solid #6739B7; /* PhonePe brand color */
+            border-radius: 5px;
+        }
+        .qr-section p {
+            font-weight: 500;
+            color: #666;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>WELCOME TO SAFE RIDE</h1>
+              <h2 class="section-title">👤 Your Details</h2>
+        <form>
+            <label for="username">User Name</label>
+            <input type="text" id="username" name="username" placeholder="Enter your full name" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="+91 XXX-XXX-XXXX" pattern="[0-9+ ]{10,15}" required>
+
+            <h2 class="section-title">📍 Trip Route</h2>
+            
+            <label for="start-location">Start Location (Pickup)</label>
+            <input type="text" id="start-location" name="start-location" placeholder="Current Location or specific address" required>
+
+            <label for="end-location">End Location (Destination)</label>
+            <input type="text" id="end-location" name="end-location" placeholder="Destination address or Landmark" required>
+
+            <h2 class="section-title">🚗 Select Vehicle</h2>
+
+            <div class="vehicle-options">
+                <div class="vehicle-option">
+                    <input type="radio" id="two-wheeler" name="vehicle" value="bike" required>
+                    <label for="two-wheeler">
+                        <span class="vehicle-icon">🛵</span><br>
+                        **Two-Wheeler**
+                        <p style="font-size: 0.8em; color: #555;">Max: 1 Rider | Quickest</p>
+                    </label>
+                </div>
+
+                <div class="vehicle-option">
+                    <input type="radio" id="four-wheeler" name="vehicle" value="car" checked>
+                    <label for="four-wheeler">
+                        <span class="vehicle-icon">🚕</span><br>
+                        **Four-Wheeler**
+                        <p style="font-size: 0.8em; color: #555;">Max: 4 Riders | Comfortable</p>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit">✅ Book Ride & Get Tracking Link</button>
+        </form>
+        
+        <hr style="margin: 30px 0; border-top: 1px dashed #ccc;">
+
+        <h2 class="section-title">🗺️ Tracking</h2>
+        <div class="tracking-box">
+            <p>Your driver is **5 minutes away**. Live updates below.</p>
+
+            <img src="tracking.jpg" alt="Near you!">
+
+             </div>
+
+        <h2 class="section-title">💳 Final Payment: PhonePe</h2>
+        <div class="payment-box qr-section">
+            <p style="font-size: 1.1em; font-weight: bold;">Scan the QR code below to pay the final fare using PhonePe.</p>
+            <img src="qr code.jpg" alt="PhonePe QR Scanner Placeholder">
+            <p>Total Fare: **₹ 245.00** (Tap to change payment method)</p>
+        </div>
+    </div>
+
+</body>
+</html>
